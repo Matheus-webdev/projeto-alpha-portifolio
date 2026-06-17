@@ -136,6 +136,21 @@ function updateActiveNavLink() {
 window.addEventListener('scroll', updateActiveNavLink, { passive: true });
 
 /* ============================================
+   NAVBAR INTELIGENTE - Transparente → Sólida
+   ============================================ */
+function updateHeaderOnScroll() {
+  const header = document.querySelector('.header');
+  if (window.scrollY > 60) {
+    header.classList.add('header--scrolled');
+  } else {
+    header.classList.remove('header--scrolled');
+  }
+}
+
+window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+updateHeaderOnScroll();
+
+/* ============================================
    ATUALIZAR ANO NO FOOTER
    ============================================ */
 const yearSpan = document.getElementById('currentYear');
