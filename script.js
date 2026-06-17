@@ -9,12 +9,11 @@ function toggleMenu() {
   const isActive = mainNav.classList.toggle('active');
   menuToggle.classList.toggle('active');
   menuToggle.setAttribute('aria-expanded', isActive);
+  document.body.style.overflow = isActive ? 'hidden' : '';
 
   if (isActive) {
-    document.body.style.overflow = 'hidden';
     createOverlay();
   } else {
-    document.body.style.overflow = '';
     removeOverlay();
   }
 }
@@ -37,16 +36,11 @@ function createOverlay() {
 
 function removeOverlay() {
   const overlay = document.querySelector('.nav-overlay');
-  if (overlay) {
-    overlay.remove();
-  }
+  if (overlay) overlay.remove();
 }
 
 menuToggle.addEventListener('click', toggleMenu);
-
-navLinks.forEach(link => {
-  link.addEventListener('click', closeMenu);
-});
+navLinks.forEach(link => link.addEventListener('click', closeMenu));
 
 /* ============================================
    SCROLL SUAVE
@@ -59,96 +53,133 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(href);
     if (target) {
       const headerOffset = 80;
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   });
 });
 
 /* ============================================
-   INTERSECTION OBSERVER - Animações Fade-in
+   INTERSECTION OBSERVER - Scroll Reveal
    ============================================ */
-function initScrollAnimations() {
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -60px 0px',
-    threshold: 0.1
-  };
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  // Observe all sections
-  document.querySelectorAll('.section').forEach(section => {
-    section.classList.add('fade-in');
-    observer.observe(section);
+function initScrollReveal() {
+  document.querySelectorAll('.section').forEach(el => {
+    el.classList.add('fade-in');
+    revealObserver.observe(el);
   });
 
-  // Observe stagger children containers (grids of cards)
   document.querySelectorAll('.stagger-children').forEach(el => {
-    observer.observe(el);
+    revealObserver.observe(el);
   });
 
-  // Observe individual cards (backup for non-stagger grids)
   document.querySelectorAll('.about__card').forEach(el => {
     el.classList.add('fade-in-up');
-    observer.observe(el);
+    revealObserver.observe(el);
   });
 }
 
-initScrollAnimations();
+initScrollReveal();
 
 /* ============================================
-   NAVEGAÇÃO ATIVA - Highlight da seção atual
+   NAVEGAÇÃO ATIVA - IntersectionObserver
    ============================================ */
-function updateActiveNavLink() {
-  const sections = document.querySelectorAll('.section');
-  const navLinks = document.querySelectorAll('.header__nav-link');
-  let currentSection = '';
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionBottom = sectionTop + section.offsetHeight;
-    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
-      currentSection = section.getAttribute('id');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      document.querySelectorAll('.header__nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${id}`) {
+          link.classList.add('active');
+        }
+      });
     }
   });
+}, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${currentSection}`) {
-      link.classList.add('active');
-    }
-  });
-}
-
-window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+document.querySelectorAll('.section').forEach(section => {
+  navObserver.observe(section);
+});
 
 /* ============================================
-   NAVBAR INTELIGENTE - Transparente → Sólida
+   NAVBAR INTELIGENTE
    ============================================ */
 function updateHeaderOnScroll() {
   const header = document.querySelector('.header');
-  if (window.scrollY > 60) {
-    header.classList.add('header--scrolled');
-  } else {
-    header.classList.remove('header--scrolled');
-  }
+  header.classList.toggle('header--scrolled', window.scrollY > 60);
 }
-
 window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
 updateHeaderOnScroll();
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+function updateProgressBar() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  document.getElementById('progressBar').style.width = progress + '%';
+}
+window.addEventListener('scroll', updateProgressBar, { passive: true });
+
+/* ============================================
+   COUNTER ANIMATION
+   ============================================ */
+function animateCounter(el) {
+  const target = parseInt(el.getAttribute('data-target'));
+  const duration = 1500;
+  const start = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target);
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('[data-target]').forEach(el => {
+        el.textContent = '0';
+        animateCounter(el);
+      });
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const countersSection = document.getElementById('counters');
+if (countersSection) {
+  counterObserver.observe(countersSection);
+}
+
+/* ============================================
+   SPOTLIGHT HOVER - Projetos
+   ============================================ */
+document.querySelectorAll('.projeto-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mouse-x', x + '%');
+    card.style.setProperty('--mouse-y', y + '%');
+  });
+});
 
 /* ============================================
    ATUALIZAR ANO NO FOOTER
