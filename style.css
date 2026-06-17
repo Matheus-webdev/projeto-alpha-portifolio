@@ -213,24 +213,6 @@ ul {
   height: var(--header-height);
 }
 
-.header::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), #6ba3ff, var(--accent));
-  background-size: 200% 100%;
-  animation: progressGlow 3s ease-in-out infinite;
-  width: var(--scroll-progress, 0%);
-  transition: width 0.1s linear;
-}
-
-@keyframes progressGlow {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
 .header__container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -372,24 +354,6 @@ ul {
   align-items: center;
   justify-content: center;
   padding: calc(var(--header-height) + 40px) 20px 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 30% 40%, rgba(79, 140, 255, 0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 70% 60%, rgba(79, 140, 255, 0.08) 0%, transparent 60%);
-  animation: heroAmbient 8s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes heroAmbient {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(5%, 3%) scale(1.1); }
 }
 
 .hero__content {
@@ -418,13 +382,6 @@ ul {
 
 .hero__title-highlight {
   color: var(--accent);
-  animation: highlightPulse 4s ease-in-out infinite;
-  display: inline-block;
-}
-
-@keyframes highlightPulse {
-  0%, 100% { text-shadow: 0 0 20px rgba(79, 140, 255, 0.3); }
-  50% { text-shadow: 0 0 40px rgba(79, 140, 255, 0.6), 0 0 80px rgba(79, 140, 255, 0.2); }
 }
 
 .hero__subtitle {
@@ -625,14 +582,7 @@ ul {
   padding: 16px;
 }
 
-.skill-card--learning:hover {
-  animation: cardFloat 3s ease-in-out infinite;
-}
 
-@keyframes cardFloat {
-  0%, 100% { transform: translateY(-2px); }
-  50% { transform: translateY(-6px); }
-}
 
 .skill-card__indicator {
   width: 8px;
@@ -700,15 +650,6 @@ ul {
 .projeto-card:hover .projeto-card__media-icon {
   color: var(--accent);
   opacity: 0.8;
-  transform: scale(1.15) rotate(-3deg);
-}
-
-.projeto-card__media-icon svg {
-  transition: transform var(--transition);
-}
-
-.projeto-card:hover .projeto-card__media-icon svg {
-  transform: scale(1.1);
 }
 
 .projeto-card__body {
@@ -1053,29 +994,7 @@ ul {
 .fade-in.visible .section-header-stagger > *:nth-child(3),
 .section.visible .section-header-stagger > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
 
-/* Section tag underline animation */
-.section__tag {
-  position: relative;
-  padding-bottom: 4px;
-}
 
-.section__tag::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 1px;
-  transform: translateX(-50%);
-  transition: width 0.6s ease-out;
-}
-
-.section.visible .section__tag::after,
-.fade-in.visible .section__tag::after {
-  width: 40px;
-}
 
 /* Pulse animation for learning indicator */
 @keyframes pulse-dot {
