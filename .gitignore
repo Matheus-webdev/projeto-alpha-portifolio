@@ -1,0 +1,16 @@
+# OS
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Design reference
+DESIGN.md
+screen.png
+*.bak
