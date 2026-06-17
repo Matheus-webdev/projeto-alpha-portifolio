@@ -136,6 +136,19 @@ function updateActiveNavLink() {
 window.addEventListener('scroll', updateActiveNavLink, { passive: true });
 
 /* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+function updateScrollProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  document.documentElement.style.setProperty('--scroll-progress', progress + '%');
+}
+
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
+updateScrollProgress();
+
+/* ============================================
    ATUALIZAR ANO NO FOOTER
    ============================================ */
 const yearSpan = document.getElementById('currentYear');
