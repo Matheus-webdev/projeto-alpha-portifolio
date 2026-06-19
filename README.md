@@ -193,6 +193,12 @@ Substituição do projeto Matuto Dev pelo site institucional do time Pelicanos A
 
 ---
 
+### `fix: atualiza contador de projetos de 5 para 4`
+
+Correção do contador de projetos na seção Jornada para refletir o número atual de projetos no portfólio.
+
+---
+
 ## Tecnologias
 
 - **HTML5** — Semântico e acessível
