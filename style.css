@@ -703,9 +703,9 @@ ul {
    ============================================ */
 .projetos__grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  max-width: 860px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -753,7 +753,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 220px;
+  height: 260px;
   background: var(--bg-alt);
   border-bottom: 1px solid var(--border);
 }
@@ -765,7 +765,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(1.3);
+  transform: scale(1.5);
 }
 
 .projeto-card:hover .projeto-card__media-icon {
@@ -1190,10 +1190,6 @@ ul {
 
   .skills__group--full .skills__cards {
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  .projetos__grid {
-    grid-template-columns: 1fr;
   }
 
   .jornada__grid {
