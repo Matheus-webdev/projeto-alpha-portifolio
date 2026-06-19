@@ -182,6 +182,17 @@ Remoção das tags "Em Desenvolvimento" (amarelas) dos cards de projeto e estili
 
 ---
 
+### `update: substitui matuto dev por pelicanos azuis fc (sitep.a)`
+
+Substituição do projeto Matuto Dev pelo site institucional do time Pelicanos Azuis FC.
+
+- Projeto removido: Matuto Dev (site educacional)
+- Projeto adicionado: Pelicanos Azuis FC — site com elenco, fotos e frases dos jogadores
+- Repositório: `Matheus-webdev/sitep.a`
+- Links atualizados para demo e código
+
+---
+
 ## Tecnologias
 
 - **HTML5** — Semântico e acessível
