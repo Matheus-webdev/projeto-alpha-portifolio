@@ -172,6 +172,16 @@ Substituição dos botões "Ver Código" por "Em Desenvolvimento" nos projetos p
 
 ---
 
+### `fix: remove tags em desenvolvimento amarelas e adiciona btn--warning`
+
+Remoção das tags "Em Desenvolvimento" (amarelas) dos cards de projeto e estilização dos botões correspondentes na cor amarela.
+
+- Tags "Em Desenvolvimento" removidas dos cards Cookies Boho e Paixão Suplementos
+- Novo estilo `btn--warning` com fundo amarelo translúcido e borda amarela
+- Botões "Em Desenvolvimento" agora usam `btn--warning` no lugar de `btn--disabled`
+
+---
+
 ## Tecnologias
 
 - **HTML5** — Semântico e acessível
