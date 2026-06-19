@@ -704,9 +704,7 @@ ul {
 .projetos__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 24px;
 }
 
 .projeto-card {
@@ -753,19 +751,18 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 260px;
+  height: 180px;
   background: var(--bg-alt);
   border-bottom: 1px solid var(--border);
 }
 
 .projeto-card__media-icon {
   color: var(--text-muted);
-  opacity: 0.6;
+  opacity: 0.5;
   transition: all var(--transition);
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: scale(1.5);
 }
 
 .projeto-card:hover .projeto-card__media-icon {
@@ -774,7 +771,7 @@ ul {
 }
 
 .projeto-card__body {
-  padding: 28px;
+  padding: 24px;
 }
 
 .projeto-card__tags {
@@ -802,10 +799,10 @@ ul {
 }
 
 .projeto-card__title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .projeto-card__description {
