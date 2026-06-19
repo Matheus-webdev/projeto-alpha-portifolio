@@ -364,6 +364,7 @@ Correção do contador de projetos na seção Jornada para refletir o número at
 - **CSS3** — Variables, Flexbox, Grid, Mobile First
 - **JavaScript** — Vanilla, Intersection Observer, DOM
 - **Fonte:** Inter (Google Fonts)
+- opencode (assistente  de IA)
 
 ## Contato
 
