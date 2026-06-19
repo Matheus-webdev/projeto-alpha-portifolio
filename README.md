@@ -103,6 +103,65 @@ Micro-interações e refinamentos visuais para melhor experiência do usuário.
 
 ---
 
+### `style: add animated hero gradient, floating glow, grid background, and noise texture`
+
+Background animado no hero com gradiente em movimento e glow flutuante, grid tecnológico sutil no fundo e granulação (noise) para profundidade visual.
+
+- Gradiente animado no hero com `background-size: 400%` e animação `gradientShift`
+- Glow desfocado (`500px`, `blur(120px)`) animado com `floatBlob`
+- Grid de linhas finas (`rgba(255,255,255,0.02)`) como textura de fundo
+- Noise overlay com SVG `feTurbulence` e `mix-blend-mode: overlay`
+
+---
+
+### `feat: add 4 real project cards with descriptions and update counter to 5`
+
+Substituição dos placeholders por projetos reais com descrições completas e contadores atualizados.
+
+- Cards: Cookies Boho (profissional), Jogo Pelicanos Azuis, Paixão Suplementos, Matuto Dev
+- Cada card com tags, descrição e links (demo + repositório)
+- Projeto em destaque com borda accent (`projeto-card--featured`)
+- Contadores da seção Jornada atualizados para refletir projetos e tecnologias reais
+
+---
+
+### `fix: email ultrapassando card de contato`
+
+Correção de overflow do e-mail na seção de contato — o texto ultrapassava a área do card em telas menores.
+
+- `word-break: break-all` para quebrar o e-mail longo em qualquer caractere
+- `overflow-wrap: break-word` como fallback
+- `max-width: 100%` para limitar ao tamanho do container
+
+---
+
+### `fix: email ultrapassando — min-width: 0 e width: 100% no handle`
+
+Ajuste fino no layout flex para garantir que o handle do e-mail respeite os limites do card de contato.
+
+- `min-width: 0` no `.contato__link-handle` para permitir encolhimento em flex container
+- `width: 100%` no breakpoint desktop (768px+) para ocupar largura total no layout em coluna
+
+---
+
+### `update: habilidades atualmente aprendendo`
+
+Substituição dos itens da seção "Atualmente Aprendendo" e criação de nova categoria "Aprendizados Pessoais".
+
+- Novos itens em aprendizado: Agents de IA, Engenharia de Prompt, Arquitetura de Dados, Manipulação de DOM Avançado
+- Itens removidos (React, Node.js, Banco de Dados, Cybersegurança) movidos para novo grupo "Aprendizados Pessoais"
+
+---
+
+### `update: tags profissional e em desenvolvimento`
+
+Marcação dos projetos comerciais como profissionais e em desenvolvimento.
+
+- Cookies Boho: adicionada tag "Em Desenvolvimento"
+- Paixão Suplementos: adicionadas tags "Profissional" e "Em Desenvolvimento"
+
+---
+
 ## Tecnologias
 
 - **HTML5** — Semântico e acessível
