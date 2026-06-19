@@ -366,6 +366,53 @@ Correção do contador de projetos na seção Jornada para refletir o número at
 - **Fonte:** Inter (Google Fonts)
 - opencode (assistente  de IA)
 
+---
+
+## Análise de Segurança
+
+O projeto foi revisado e **não apresenta vulnerabilidades críticas**:
+
+- **Nenhuma API key ou credencial** exposta no código
+- **Nenhuma chamada de API externa** — o portfólio é 100% estático
+- **Nenhum formulário com coleta de dados** — sem risco de injeção ou vazamento
+- **Links externos seguros** — todos usam `target="_blank"` com `rel="noopener noreferrer"`
+- **Event listeners otimizados** — uso de `passive: true` nos listeners de scroll
+- **Sem `eval()`, `innerHTML` ou funções perigosas**
+- **Acessibilidade:** `prefers-reduced-motion` respeitado
+
+> ⚠️ O e-mail `matheusleonardoo2008@gmail.com` fica exposto no HTML (necessário para contato).
+
+---
+
+## APIs
+
+**Este projeto não consome nenhuma API.** É um site estático puro (HTML + CSS + JavaScript Vanilla).
+
+A única dependência externa é a fonte **Inter** via Google Fonts.
+
+> O projeto [Paixão Suplementos](https://paixao-suplementos-v2-api-server.vercel.app/) (linkado no portfólio) possui backend próprio, mas essa API **não é chamada** por este portfólio.
+
+---
+
+## Responsividade Mobile
+
+Layout **Mobile First** com breakpoints testados:
+
+| Breakpoint | Dispositivo |
+|-----------|-------------|
+| < 379px | Smartphones pequenos |
+| 379px — 599px | Smartphones padrão |
+| 600px — 767px | Tablets |
+| 768px — 1023px | Desktop |
+| 1024px+ | Desktop largo |
+
+**Funcionalidades mobile:**
+- Menu hamburger com slide-in animado e overlay
+- Grids adaptativos (1 → 2 → 3 → 4 colunas)
+- Contadores e cards em coluna única no mobile
+- Botões empilhados verticalmente em telas pequenas
+- E-mail com `word-break: break-all` para evitar overflow
+
 ## Contato
 
 - GitHub: [Matheus-webdev](https://github.com/Matheus-webdev)
