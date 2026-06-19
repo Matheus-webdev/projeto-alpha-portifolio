@@ -213,6 +213,22 @@ ul {
   border-radius: var(--radius-sm);
 }
 
+.btn--warning {
+  background: rgba(234, 179, 8, 0.1);
+  color: var(--warning);
+  border: 1.5px solid rgba(234, 179, 8, 0.2);
+  font-size: 13px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  cursor: default;
+}
+
+.btn--warning:hover {
+  background: rgba(234, 179, 8, 0.15);
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
 .btn--disabled {
   background: transparent;
   color: var(--text-muted);
