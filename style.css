@@ -956,6 +956,9 @@ ul {
   font-size: 13px;
   color: var(--text-muted);
   margin-left: auto;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 /* ============================================
