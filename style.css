@@ -703,7 +703,7 @@ ul {
    ============================================ */
 .projetos__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
@@ -1190,6 +1190,10 @@ ul {
   }
 
   .jornada__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projetos__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
