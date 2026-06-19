@@ -6,6 +6,8 @@
 
 **📌 Status do projeto:** `Em desenvolvimento` — Melhorias contínuas de UI/UX e conteúdo.
 
+![Preview do Portfólio](./Captura%20de%20tela%202026-06-19%20192146.png)
+
 ---
 
 ## Como rodar localmente
