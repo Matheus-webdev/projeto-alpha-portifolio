@@ -1,8 +1,39 @@
-# Matheus Souza — Portfólio Pessoal
+# Portfólio — Matheus Souza
 
-Portfólio profissional desenvolvido como trabalho acadêmico, demonstrando domínio de HTML5, CSS3 e JavaScript Vanilla com foco em semântica, responsividade e boas práticas.
+> Portfólio profissional com tema escuro, design system próprio e animações refinadas. Desenvolvido como trabalho acadêmico para demonstrar domínio de HTML5, CSS3 e JavaScript Vanilla com foco em semântica, responsividade e boas práticas.
 
-**Acesse:** [matheus-webdev.github.io/projeto-alpha-portifolio](https://matheus-webdev.github.io/projeto-alpha-portifolio)
+**🔗 Aplicação em produção:** [matheus-webdev.github.io/projeto-alpha-portifolio](https://matheus-webdev.github.io/projeto-alpha-portifolio)
+
+**📌 Status do projeto:** `Em desenvolvimento` — Melhorias contínuas de UI/UX e conteúdo.
+
+---
+
+## Como rodar localmente
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/Matheus-webdev/projeto-alpha-portifolio.git
+
+# 2. Entre no diretório
+cd projeto-alpha-portifolio
+
+# 3. Abra o index.html no navegador
+#    (você pode dar duplo clique no arquivo ou usar um live server)
+```
+
+> **Requisitos:** Nenhum — o projeto é 100% estático (HTML + CSS + JS). Basta um navegador moderno.
+
+Para iniciar um servidor local rápido (opcional):
+
+```bash
+# Com Python (já vem instalado na maioria dos sistemas):
+python -m http.server 8000
+
+# Ou com Node.js e npx:
+npx live-server
+```
+
+Depois acesse `http://localhost:8000` no navegador.
 
 ---
 
