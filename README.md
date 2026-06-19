@@ -162,6 +162,16 @@ Marcação dos projetos comerciais como profissionais e em desenvolvimento.
 
 ---
 
+### `update: botoes ver codigo alterados para em desenvolvimento`
+
+Substituição dos botões "Ver Código" por "Em Desenvolvimento" nos projetos profissionais.
+
+- Cookies Boho: botão "Ver Código" substituído por "Em Desenvolvimento" (desabilitado)
+- Paixão Suplementos: botão "Ver Código" substituído por "Em Desenvolvimento" (desabilitado)
+- Indicação visual de que o código ainda não está disponível publicamente
+
+---
+
 ## Tecnologias
 
 - **HTML5** — Semântico e acessível
