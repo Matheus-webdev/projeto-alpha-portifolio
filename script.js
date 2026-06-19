@@ -169,17 +169,19 @@ if (countersSection) {
 }
 
 /* ============================================
-   SPOTLIGHT HOVER - Projetos
+   SPOTLIGHT HOVER - Projetos (apenas hover)
    ============================================ */
-document.querySelectorAll('.projeto-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    card.style.setProperty('--mouse-x', x + '%');
-    card.style.setProperty('--mouse-y', y + '%');
+if (window.matchMedia('(hover: hover)').matches) {
+  document.querySelectorAll('.projeto-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mouse-x', x + '%');
+      card.style.setProperty('--mouse-y', y + '%');
+    });
   });
-});
+}
 
 /* ============================================
    ATUALIZAR ANO NO FOOTER

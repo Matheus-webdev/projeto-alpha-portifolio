@@ -1199,6 +1199,10 @@ ul {
   .contato__link-handle {
     display: block;
   }
+
+  .formacao__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Desktop: 768px+ */
@@ -1302,7 +1306,7 @@ ul {
     font-size: 38px;
   }
 
-  .formacao__items {
+  .projetos__grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -1315,6 +1319,14 @@ ul {
 
   .hero__title {
     font-size: 60px;
+  }
+
+  .projetos__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .formacao__items {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1340,6 +1352,10 @@ ul {
   }
 
   .skills__group--full .skills__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .counters {
     grid-template-columns: 1fr;
   }
 
